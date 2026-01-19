@@ -7,18 +7,21 @@ export default async function DashboardPage() {
   const user = await getCurrentUser()
   const userId = user.id
 
-  const totalProducts = await prisma.product.count({ where: { userId } })
-  const lowStock = await prisma.product.count({
-    where: {
-      userId,
-      lowStockAt: { not: null },
-      quantity: { lte: 5 },
-    },
-  })
-  const allProducts = await prisma.product.findMany({
-    where: { userId },
-    select: { price: true, quantity: true, createdAt: true },
-  })
+  const [totalProducts, lowStock, allProducts] = await Promise.all([
+    prisma.product.count({ where: { userId } }),
+    prisma.product.count({
+      where: {
+        userId,
+        lowStockAt: { not: null },
+        quantity: { lte: 5 },
+      },
+    }),
+    await prisma.product.findMany({
+      where: { userId },
+      select: { price: true, quantity: true, createdAt: true },
+    }),
+  ])
+
   const totalValue = allProducts.reduce(
     (sum, product) => sum + Number(product.price) * Number(product.quantity),
     0
@@ -48,8 +51,8 @@ export default async function DashboardPage() {
           </div>
         </div>
 
-        {/* Key Metrics */}
         <div className='grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8'>
+          {/* Key Metrics */}
           <div className='bg-white rounded-lg border border-gray-200 p-6'>
             <h2 className='text-lg font-semibold text-gray-900 mb-6'>
               Key Metrics

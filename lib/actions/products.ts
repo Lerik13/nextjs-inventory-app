@@ -8,7 +8,6 @@ export async function deleteProduct(formData: FormData) {
   const id = String(formData.get('id')) || ''
 
   await prisma.product.delete({
-    //deleteMany
     where: { id: id, userId: user.id },
   })
 }

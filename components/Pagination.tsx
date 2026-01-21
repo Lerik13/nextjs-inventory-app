@@ -23,8 +23,8 @@ export default function Pagination({
 
   const getVisiblePages = () => {
     const delta = 2 // delta - how many pages we're going to show before and after the current page  (5 total)
-    const range = [] // [ 1 2 3 ]
-    const rangeWithDots = [] // [ 1 2 3 ...]
+    const range = [] // [ 1 2 3 ]  - if currentPage = 1
+    const rangeWithDots = [] // [ 1 2 3 ... 5]
 
     for (
       let i = Math.max(2, currentPage - delta);

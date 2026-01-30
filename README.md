@@ -42,3 +42,15 @@ A full-stack Inventory Management application with user authentication, dashboar
 - Lucide Icons – Clean and beautiful icon pack
 - Recharts – Data visualization for analytics
 - TypeScript – Type safety and enhanced developer experience
+
+| ![Dashboard](https://github.com/Lerik13/nextjs-inventory-app/blob/main/screeshots/img1.jpg) |
+| ------------------------------------------------------------------------------------------- |
+
+| ![Inventory](https://github.com/Lerik13/nextjs-inventory-app/blob/main/screeshots/img2.jpg) |
+| ------------------------------------------------------------------------------------------- |
+
+| ![Add Product](https://github.com/Lerik13/nextjs-inventory-app/blob/main/screeshots/img3.jpg) |
+| --------------------------------------------------------------------------------------------- |
+
+| ![Seetings](https://github.com/Lerik13/nextjs-inventory-app/blob/main/screeshots/img4.jpg) |
+| ------------------------------------------------------------------------------------------ |
